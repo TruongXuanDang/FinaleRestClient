@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Success</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<h1>List Role</h1>
+
+<table>
+    <a href="/add">Add Product</a>
+    <br>
+    <a href="/sell">Sell Product</a>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+
+<!--        <th>Action</th>-->
+    </tr>
+
+    <tr th:if="${products.empty}">
+        <td colspan="2"> No Products Available </td>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td><span th:text="${product.id}"> ID </span></td>
+        <td><span th:text="${product.name}"> Name </span></td>
+        <td><span th:text="${product.price}"> Price </span></td>
+        <td><span th:text="${product.quantity}"> Quantity </span></td>
+
+<!--        <td>-->
+<!--            <a th:href="@{/edit?id={id}(id=${role.id})}" >Edit</a>-->
+<!--            <a th:href="@{/delete?id={id}(id=${role.id})}" >Delete</a>-->
+<!--        </td>-->
+    </tr>
+
+</table>
+
+</body>
+</html>
